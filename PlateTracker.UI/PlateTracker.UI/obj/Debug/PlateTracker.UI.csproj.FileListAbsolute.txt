@@ -1,0 +1,14 @@
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\PlateTracker.UI.exe.config
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\PlateTracker.UI.exe
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\PlateTracker.UI.pdb
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\PlateTracker.UI.csprojResolveAssemblyReference.cache
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\MainWindow.g.cs
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\App.g.cs
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\PlateTracker.UI_MarkupCompile.cache
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\PlateTracker.UI_MarkupCompile.lref
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\MainWindow.baml
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\PlateTracker.UI.g.resources
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\PlateTracker.UI.Properties.Resources.resources
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\PlateTracker.UI.csproj.GenerateResource.Cache
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\PlateTracker.UI.exe
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\PlateTracker.UI.pdb
