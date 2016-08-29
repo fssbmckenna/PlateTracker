@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlateTracker.UI", "PlateTracker.UI\PlateTracker.UI.csproj", "{CCD0A5ED-9611-4D6F-B716-5004CE6B1E8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlateTracker", "PlateTracker\PlateTracker.csproj", "{249F7F1F-FEC0-434E-A318-5BE54F2A8006}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CCD0A5ED-9611-4D6F-B716-5004CE6B1E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCD0A5ED-9611-4D6F-B716-5004CE6B1E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCD0A5ED-9611-4D6F-B716-5004CE6B1E8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{249F7F1F-FEC0-434E-A318-5BE54F2A8006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{249F7F1F-FEC0-434E-A318-5BE54F2A8006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{249F7F1F-FEC0-434E-A318-5BE54F2A8006}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{249F7F1F-FEC0-434E-A318-5BE54F2A8006}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
