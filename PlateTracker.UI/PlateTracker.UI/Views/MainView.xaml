@@ -7,6 +7,30 @@
         mc:Ignorable="d"
         Title="Plate Tracker" Height="600" Width="900">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid>
+            
+        </Grid>
+        <Grid Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>         
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="200*" />
+            </Grid.ColumnDefinitions>
+            <GroupBox Grid.Column="0" Header="Object List" HorizontalAlignment="Stretch" Margin="10,10,10,10" MinWidth="200">
+                
+            </GroupBox>
+            <GridSplitter MinWidth="5" />
+            <GroupBox Grid.Column="1" Header="Object Edit" HorizontalAlignment="Stretch" Margin="10,10,10,10" MinWidth="200">
+                
+            </GroupBox>
+
+        </Grid>
     </Grid>
 </Window>

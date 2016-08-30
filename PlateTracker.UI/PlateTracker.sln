@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlateTracker.UI", "PlateTra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlateTracker", "PlateTracker\PlateTracker.csproj", "{249F7F1F-FEC0-434E-A318-5BE54F2A8006}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlateTracker.Resources", "PlateTracker.Resources\PlateTracker.Resources.csproj", "{4F54F985-BDFB-4842-9187-40A64C7D45E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{249F7F1F-FEC0-434E-A318-5BE54F2A8006}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{249F7F1F-FEC0-434E-A318-5BE54F2A8006}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{249F7F1F-FEC0-434E-A318-5BE54F2A8006}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F54F985-BDFB-4842-9187-40A64C7D45E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F54F985-BDFB-4842-9187-40A64C7D45E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F54F985-BDFB-4842-9187-40A64C7D45E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F54F985-BDFB-4842-9187-40A64C7D45E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

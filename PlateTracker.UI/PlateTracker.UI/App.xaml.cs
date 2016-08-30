@@ -70,7 +70,7 @@ namespace PlateTracker.UI
             catch (Exception ex)
             {
                 //Log Error - 
-                
+                var error = ex.Message;
             }
 
         }

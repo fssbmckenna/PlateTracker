@@ -99,7 +99,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PlateTracker.Resources\PlateTracker.Resources.csproj">
+      <Project>{4f54f985-bdfb-4842-9187-40a64c7d45e0}</Project>
+      <Name>PlateTracker.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlateTracker\PlateTracker.csproj">
+      <Project>{249f7f1f-fec0-434e-a318-5be54f2a8006}</Project>
+      <Name>PlateTracker</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

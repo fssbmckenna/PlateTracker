@@ -1,0 +1,6 @@
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker\bin\Debug\PlateTracker.dll
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker\bin\Debug\PlateTracker.pdb
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker\obj\Debug\PlateTracker.Properties.Resources.resources
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker\obj\Debug\PlateTracker.csproj.GenerateResource.Cache
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker\obj\Debug\PlateTracker.dll
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker\obj\Debug\PlateTracker.pdb
