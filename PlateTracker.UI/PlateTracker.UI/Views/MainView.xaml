@@ -10,7 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <Grid>
             
@@ -31,6 +31,18 @@
                 
             </GroupBox>
 
+        </Grid>
+        <Grid Grid.Row="2">
+            <StackPanel>
+                <DockPanel Margin="5,5,5,5">
+                    <Button Content="New" Width="150" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center"
+                            FontSize="16" IsEnabled="True" Command="{Binding AddCommand}" Margin="10,0,0,0" />
+                    <Button Content="Save" Width="150" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                            FontSize="16" IsEnabled="True" Command="{Binding SaveCommand}" Margin="10,0,0,0"/>
+                    <Button Content="Close" Width="150" Height="35" HorizontalAlignment="Right" VerticalAlignment="Center"
+                            FontSize="16" IsEnabled="True" Command="{Binding CloseCommand}" Margin="10,0,0,0"/>
+                </DockPanel>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>
