@@ -30,5 +30,10 @@ namespace PlateTracker.UI.Views
             InitializeComponent();
         }
 
+        private void DrawImage_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //throw new NotImplementedException();
+            var pos = e.GetPosition(DrawImage);
+        }
     }
 }

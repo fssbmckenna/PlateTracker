@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using PlateTracker.ViewModels;
 
 namespace PlateTracker.UI.ViewModels
@@ -13,11 +14,15 @@ namespace PlateTracker.UI.ViewModels
     public interface IMainVM 
     {
         ICommand AddCommand { get; }
+        ICommand SaveCommand { get; }
+        ICommand CloseCommand { get; }
     }
 
     public class MainVM : ViewModelBase
     {
         //public RelayCommand<Window> CloseWindowCommand { get; set; }
+        private BitmapImage _drawImageBackground = null;
+        private string _drawImagePath = @"C:\TEMP\DrawBackground.jpg";
 
         #region Constructors
         public MainVM()
@@ -83,6 +88,33 @@ namespace PlateTracker.UI.ViewModels
                 }
             }
         }
+
+        public BitmapImage DrawImageBackground
+        {
+            get
+            {
+                if (_drawImageBackground == null)
+                    _drawImageBackground = new BitmapImage();
+
+                if (!string.IsNullOrEmpty(_drawImagePath))
+                {
+                    _drawImageBackground.BeginInit();
+                   // _drawImageBackground.CacheOption = BitmapCacheOption.OnLoad;
+                   // _drawImageBackground.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
+                    _drawImageBackground.UriSource = new Uri(_drawImagePath);
+                    _drawImageBackground.EndInit();
+                }
+                return _drawImageBackground;
+            }
+            set
+            {
+                if (value != _drawImageBackground)
+                {
+                    _drawImageBackground = value;
+                    OnPropertyChanged("DrawImageBackground");
+                }
+            }
+        }
         #endregion
 
         #region Methods
@@ -104,6 +136,8 @@ namespace PlateTracker.UI.ViewModels
         private void CloseView()
         {
             var msg = "close view";
+
+            Application.Current.Windows[0].Close();
         }
         #endregion
         #endregion

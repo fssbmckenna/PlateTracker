@@ -27,9 +27,32 @@
                 
             </GroupBox>
             <GridSplitter MinWidth="5" />
-            <GroupBox Grid.Column="1" Header="Object Edit" HorizontalAlignment="Stretch" Margin="10,10,10,10" MinWidth="200">
+            <GroupBox Grid.Column="1" Header="Object Draw" HorizontalAlignment="Stretch" Margin="10,10,10,10" MinWidth="400">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackPanel Grid.Column="0" MinWidth="300" >
+                        <Canvas x:Name="DrawImage" Width="300" Height="300" MouseDown="DrawImage_OnMouseDown" >
+                            <Canvas.Background>
+                                <ImageBrush ImageSource="{Binding Path=DrawImageBackground}" />
+                            </Canvas.Background>
+                            
+                        </Canvas>
+                    </StackPanel>
+                    <GridSplitter MinWidth="5" />
+                    <StackPanel Grid.Column="1" MinWidth="90">
+
+                    </StackPanel>
+                </Grid>
                 
             </GroupBox>
+
 
         </Grid>
         <Grid Grid.Row="2">
