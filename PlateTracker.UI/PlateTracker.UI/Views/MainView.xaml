@@ -33,15 +33,13 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="340" />
                         <ColumnDefinition Width="100*" />
                     </Grid.ColumnDefinitions>
                     
                     <StackPanel Grid.Column="0" MinWidth="300" >
-                        <Canvas x:Name="DrawImage" Width="300" Height="300" MouseDown="DrawImage_OnMouseDown" >
-                            <Canvas.Background>
-                                <ImageBrush ImageSource="{Binding Path=DrawImageBackground}" />
-                            </Canvas.Background>
+                        <Canvas x:Name="DrawImage" Width="300" Height="300" MouseDown="DrawImage_OnMouseDown" Background="LightGoldenrodYellow" 
+                                MouseMove="DrawImage_OnMouseMove" MouseUp="DrawImage_OnMouseUp">
                             
                         </Canvas>
                     </StackPanel>

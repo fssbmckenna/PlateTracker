@@ -103,6 +103,7 @@ namespace PlateTracker.UI.ViewModels
                    // _drawImageBackground.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
                     _drawImageBackground.UriSource = new Uri(_drawImagePath);
                     _drawImageBackground.EndInit();
+                    
                 }
                 return _drawImageBackground;
             }
