@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlateTracker.UI"
+        xmlns:wpf="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF"
         mc:Ignorable="d"
         Title="Plate Tracker" Height="600" Width="900">
     <Grid>
@@ -45,7 +46,9 @@
                     </StackPanel>
                     <GridSplitter MinWidth="5" />
                     <StackPanel Grid.Column="1" MinWidth="90">
-
+                        <wpf:OpenGLControl Name="openGLControl" OpenGLDraw="OpenGLControl_OnOpenGLDraw" OpenGLInitialized="OpenGLControl_OnOpenGLInitialized"
+                               DrawFPS="True" Resized="OpenGLControl_OnResized" Width="300" Height="300"
+                               />
                     </StackPanel>
                 </Grid>
                 

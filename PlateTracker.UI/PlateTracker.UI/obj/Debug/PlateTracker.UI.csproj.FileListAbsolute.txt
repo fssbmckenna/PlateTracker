@@ -16,3 +16,12 @@ C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\
 C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\PlateTracker.Resources.dll
 C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\PlateTracker.Resources.pdb
 C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\PlateTracker.pdb
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\SharpGL.dll
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\SharpGL.SceneGraph.dll
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\SharpGL.WPF.dll
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\SharpGL.pdb
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\SharpGL.xml
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\SharpGL.SceneGraph.pdb
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\SharpGL.SceneGraph.xml
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\SharpGL.WPF.pdb
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\SharpGL.WPF.xml
