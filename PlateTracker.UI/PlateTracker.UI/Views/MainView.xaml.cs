@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,17 +29,27 @@ namespace PlateTracker.UI.Views
         private bool _drawMode = false;
         private Point _startPoint;
         private Line _activeLine;
-        //float rotatePyramid = 0;
+        float rotatePyramid = 0;
         float rquad = 0;
+        private string _type;
+        //private UpdateOpenGlObject _updateOpenGl;
+
+
+        //private MainVM _mainVm;
 
         public MainView(MainVM vm)
         {
             this.DataContext = vm;
             //vm.CloseWindowCommand = this.Close();
-
+            
             InitializeComponent();
+            // _updateOpenGl = vm.UpdateGl(objec)
+            // vm.Changed += new UpdateOpenGlObject(OpenGlControl_Update);
+            vm.Changed += OpenGlControl_Update;
+            _type = string.Empty;
         }
 
+        #region DrawImage
         private void DrawImage_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             //throw new NotImplementedException();
@@ -81,7 +93,6 @@ namespace PlateTracker.UI.Views
             }
         }
 
-
         private void CreateGrabBox(Point point)
         {
             
@@ -96,11 +107,13 @@ namespace PlateTracker.UI.Views
             DrawImage.Children.Add(rect);
 
         }
+        #endregion
 
         #region OpenGL
         private void OpenGLControl_OnOpenGLInitialized(object sender, OpenGLEventArgs args)
         {
             OpenGL gl = openGLControl.OpenGL;
+            
         }
 
         private void OpenGLControl_OnResized(object sender, OpenGLEventArgs args)
@@ -117,30 +130,85 @@ namespace PlateTracker.UI.Views
             gl.MatrixMode(OpenGL.GL_MODELVIEW);
         }
 
-        private void OpenGLControl_OnOpenGLDraw(object sender, EventArgs args)
+        private void OpenGlControl_Update(object sender, OpenGlObjetUpdateEventsArgs args)
         {
-            //  Get the OpenGL instance that's been passed to us.
+            var _type = args.Type;
+            if (_type == "P")
+            {
+                //show a pyramid
+                OpenGLControl_DrawPyramid(sender, args);
+            }
+            else
+            {
+                //show a cube
+                OpenGLControl_DrawCube(sender, args);
+            }
+            
+        }
+
+         private void OpenGLControl_DrawPyramid(object sender, EventArgs args)
+        {
+            OpenGL gl = openGLControl.OpenGL;
+            //  Clear the color and depth buffers.
+            gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+
+            //  Reset the modelview.
+            gl.LoadIdentity();
+            //  Move into a more central position.
+            gl.Translate(-1.5f, 0.0f, -6.0f);
+            //  Rotate the cube.
+            gl.Rotate(rotatePyramid, 0.0f, 1.0f, 0.0f);
+
+            gl.Begin(OpenGL.GL_TRIANGLES);
+
+            gl.Color(1.0f, 0.0f, 0.0f);
+            gl.Vertex(0.0f, 1.0f, 0.0f);
+            gl.Color(0.0f, 1.0f, 0.0f);
+            gl.Vertex(-1.0f, -1.0f, 1.0f);
+            gl.Color(0.0f, 0.0f, 1.0f);
+            gl.Vertex(1.0f, -1.0f, 1.0f);
+            gl.Color(1.0f, 0.0f, 0.0f);
+            gl.Vertex(0.0f, 1.0f, 0.0f);
+            gl.Color(0.0f, 0.0f, 1.0f);
+            gl.Vertex(1.0f, -1.0f, 1.0f);
+            gl.Color(0.0f, 1.0f, 0.0f);
+            gl.Vertex(1.0f, -1.0f, -1.0f);
+            gl.Color(1.0f, 0.0f, 0.0f);
+            gl.Vertex(0.0f, 1.0f, 0.0f);
+            gl.Color(0.0f, 1.0f, 0.0f);
+            gl.Vertex(1.0f, -1.0f, -1.0f);
+            gl.Color(0.0f, 0.0f, 1.0f);
+            gl.Vertex(-1.0f, -1.0f, -1.0f);
+            gl.Color(1.0f, 0.0f, 0.0f);
+            gl.Vertex(0.0f, 1.0f, 0.0f);
+            gl.Color(0.0f, 0.0f, 1.0f);
+            gl.Vertex(-1.0f, -1.0f, -1.0f);
+            gl.Color(0.0f, 1.0f, 0.0f);
+            gl.Vertex(-1.0f, -1.0f, 1.0f);
+            gl.End();
+
+            
+
+            gl.Flush();
+            //  Rotate the geometry a bit.
+            rotatePyramid += 3.0f;
+
+            rquad -= 3.0f;
+        }
+
+        
+        private void OpenGLControl_DrawCube(object sender, EventArgs args)
+        {
             OpenGL gl = openGLControl.OpenGL;
 
             //  Clear the color and depth buffers.
             gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
-
-            //  Reset the modelview matrix.
-            //gl.LoadIdentity();
-
-            //  Move the geometry into a fairly central position.
-            //gl.Translate(-1.5f, 0.0f, -6.0f);
-
-
-
-
             //  Reset the modelview.
             gl.LoadIdentity();
             //  Move into a more central position.
             gl.Translate(1.5f, 0.0f, -12.0f);
             //  Rotate the cube.
             gl.Rotate(rquad, 1.0f, 1.0f, 1.0f);
-
 
             //  Provide the cube colors and geometry.
             gl.Begin(OpenGL.GL_QUADS);
@@ -177,9 +245,46 @@ namespace PlateTracker.UI.Views
             gl.End();
             //  Flush OpenGL.
             gl.Flush();
+            
             //  Rotate the geometry a bit.
-            //rotatePyramid += 3.0f;
+            rotatePyramid += 3.0f;
             rquad -= 3.0f;
+        }
+        private void OpenGLControl_OnOpenGLDraw(object sender, EventArgs args)
+        {
+            if (_type != string.Empty)
+            {
+                //  Get the OpenGL instance that's been passed to us.
+                OpenGL gl = openGLControl.OpenGL;
+
+                // Clear the color and depth buffers. buffers are things that hold the details of the the triangle and the square that we’re going to be drawing 
+
+                gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+
+                // Reset the modelview matrix.
+                gl.LoadIdentity();
+                // Move the geometry into a fairly central position.
+                gl.Translate(-1.5f, 0.0f, -6.0f);
+                // Draw a pyramid. First, rotate the modelview matrix.
+                if (_type == "P")
+                {
+                    gl.Rotate(rotatePyramid, 0.0f, 1.0f, 0.0f);
+                    // Start drawing triangles.
+                    gl.Begin(OpenGL.GL_TRIANGLES);
+
+                    gl.Color(1.0f, 0.0f, 0.0f);
+
+                    
+                }
+                else
+                {
+                    gl.Rotate(rquad, 1.0f, 1.0f, 1.0f);
+                    gl.Begin(OpenGL.GL_QUADS);
+                    gl.Color(0.0f, 1.0f, 0.0f);
+                }
+
+                gl.Vertex(0.0f, 1.0f, 0.0f);
+            }
         }
 
         #endregion
