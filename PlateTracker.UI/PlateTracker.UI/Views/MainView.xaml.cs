@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +20,22 @@ using PlateTracker.UI.ViewModels;
 using PlateTracker.UI.Views;
 using SharpGL;
 using SharpGL.SceneGraph;
+using SharpGL.SceneGraph.Shaders;
+using SharpGL.VertexBuffers;
+using ShaderProgram = SharpGL.Shaders.ShaderProgram;
 
 namespace PlateTracker.UI.Views
 {
+
+    public class Square
+    {
+        public VertexBufferArray[] Vertices;
+
+        public Square()
+        {
+            Vertices = new VertexBufferArray[4];
+        }
+    }
    
     /// <summary>
     /// Interaction logic for MainView.xaml
@@ -136,13 +152,100 @@ namespace PlateTracker.UI.Views
             if (_type == "P")
             {
                 //show a pyramid
-                OpenGLControl_DrawPyramid(sender, args);
+                //OpenGLControl_DrawPyramid(sender, args);
+                OpenGLControl_Triangle(sender, args);
             }
             else
             {
                 //show a cube
                 OpenGLControl_DrawCube(sender, args);
             }
+            
+        }
+
+        
+
+        private void OpenGLControl_Triangle(object sender, EventArgs args)
+        {
+            Square[] side = new Square[6];
+            for (var i = 0; i < 6; i++)
+            {
+                side[i] = new Square();
+            }
+
+            side[0].Vertices[0] = new VertexBufferArray();
+
+
+            OpenGL gl = openGLControl.OpenGL;
+            //  Clear the color and depth buffers.
+            gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+
+            float[] colors = new float[9];
+            ShaderProgram program;
+            float[] trianglePoints =
+            {
+                0.0f, 0.5f, 0.0f,
+                0.5f, -0.5f, 0.0f,
+                -0.5f, -0.5f, 0.0f
+            };
+
+            SolidColorBrush solidColorBrush = new SolidColorBrush();
+            solidColorBrush.Color = Color.FromRgb(100,50,20);
+            IntPtr colorsPtr;
+            IntPtr trianglePointsPtr;
+            VertexBufferArray vertexBufferArray;
+
+            for (var i = 0; i < colors.Length; i += 3)
+            {
+                colors[i] = solidColorBrush.Color.R/255.0f;
+                colors[i + 1] = solidColorBrush.Color.G/255.0f;
+                colors[i + 1] = solidColorBrush.Color.B/255.0f;
+            }
+
+            vertexBufferArray = new VertexBufferArray();
+            vertexBufferArray.Create(gl);
+            vertexBufferArray.Bind(gl);
+
+            var colorsVboArray = new uint[1];
+            gl.GenBuffers(1, colorsVboArray);
+            gl.BindBuffer(OpenGL.GL_ARRAY_BUFFER, colorsVboArray[0]);
+            colorsPtr = GCHandle.Alloc(colors, GCHandleType.Pinned).AddrOfPinnedObject();
+            gl.BufferData(OpenGL.GL_ARRAY_BUFFER, colors.Length*Marshal.SizeOf<float>(),
+                colorsPtr, OpenGL.GL_STATIC_DRAW);
+
+            var triangleVboArray = new uint[1];
+            gl.GenBuffers(1, triangleVboArray);
+            gl.BindBuffer(OpenGL.GL_ARRAY_BUFFER, triangleVboArray[0]);
+            trianglePointsPtr = GCHandle.Alloc(trianglePoints, GCHandleType.Pinned).AddrOfPinnedObject();
+            gl.BufferData(OpenGL.GL_ARRAY_BUFFER, trianglePoints.Length*Marshal.SizeOf<float>(),
+                trianglePointsPtr, OpenGL.GL_STATIC_DRAW);
+
+            gl.BindBuffer(OpenGL.GL_ARRAY_BUFFER, triangleVboArray[0]);
+            gl.VertexAttribPointer(0,3,OpenGL.GL_FLOAT, false, 0, IntPtr.Zero);
+            gl.BindBuffer(OpenGL.GL_ARRAY_BUFFER, colorsVboArray[0]);
+            gl.VertexAttribPointer(1,3, OpenGL.GL_FLOAT, false, 0, IntPtr.Zero);
+
+            gl.EnableVertexAttribArray(0);
+            gl.EnableVertexAttribArray(1);
+
+            var vertexShader = new FragmentShader();
+            vertexShader.CreateInContext(gl);
+            vertexShader.SetSource(new StreamReader(Assembly.GetExecutingAssembly()
+                .GetManifestResourceStream(@"OpenGLTest.Shaders.Background.SolidColor.SolidColorVertex.glsl"))
+                .ReadToEnd());
+            vertexShader.Compile();
+
+            var fragmentShader = new FragmentShader();
+            fragmentShader.CreateInContext(gl);
+            fragmentShader.SetSource(new StreamReader(
+                    Assembly.GetExecutingAssembly()
+                        .GetManifestResourceStream(@"OpenGLTest.Shaders.Background.SolidColor.SolidColorFragment.glsl"))
+                .ReadToEnd());
+            fragmentShader.Compile();
+
+            program = new ShaderProgram();
+            program.Create(gl, @"OpenGLTest.Shaders.Background.SolidColor.SolidColorVertex.glsl", @"OpenGLTest.Shaders.Background.SolidColor.SolidColorFragment.glsl",null);
+            
             
         }
 
@@ -212,6 +315,7 @@ namespace PlateTracker.UI.Views
 
             //  Provide the cube colors and geometry.
             gl.Begin(OpenGL.GL_QUADS);
+          
             gl.Color(0.0f, 1.0f, 0.0f);
             gl.Vertex(1.0f, 1.0f, -1.0f);
             gl.Vertex(-1.0f, 1.0f, -1.0f);
