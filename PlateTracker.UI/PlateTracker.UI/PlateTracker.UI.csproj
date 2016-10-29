@@ -53,6 +53,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -71,7 +73,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\TabItemEx.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
+    <Compile Include="ViewModels\OpenGlTutorialViewModel.cs" />
+    <Compile Include="ViewModels\PolygonDrawViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -80,7 +85,25 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\OpenGlTutorialView.xaml.cs">
+      <DependentUpon>OpenGlTutorialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PolygonDrawView.xaml.cs">
+      <DependentUpon>PolygonDrawView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OpenGlTutorialView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PolygonDrawView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,15 +137,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlateTracker.Resources\PlateTracker.Resources.csproj">
-      <Project>{4f54f985-bdfb-4842-9187-40a64c7d45e0}</Project>
-      <Name>PlateTracker.Resources</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PlateTracker\PlateTracker.csproj">
       <Project>{249f7f1f-fec0-434e-a318-5be54f2a8006}</Project>
       <Name>PlateTracker</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

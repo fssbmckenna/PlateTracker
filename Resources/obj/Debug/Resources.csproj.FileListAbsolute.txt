@@ -1,0 +1,5 @@
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\Resources\bin\Debug\Resources.dll
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\Resources\bin\Debug\Resources.pdb
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\Resources\obj\Debug\Resources.csprojResolveAssemblyReference.cache
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\Resources\obj\Debug\Resources.dll
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\Resources\obj\Debug\Resources.pdb

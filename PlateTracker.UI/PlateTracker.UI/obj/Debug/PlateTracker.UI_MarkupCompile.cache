@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\App.xaml
-11811751144
+4-692326059
 
-7-1906578363
-18-838925613
-Views\MainView.xaml;
+12-1986383069
+19-366308138
+Resources\Styles.xaml;Views\MainView.xaml;Views\OpenGlTutorialView.xaml;Views\PolygonDrawView.xaml;
 
 False
 

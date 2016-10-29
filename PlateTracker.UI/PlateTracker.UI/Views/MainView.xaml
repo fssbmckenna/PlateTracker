@@ -5,70 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlateTracker.UI"
         xmlns:wpf="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF"
+        xmlns:views="clr-namespace:PlateTracker.UI.Views"
+        xmlns:viewModels="clr-namespace:PlateTracker.UI.ViewModels"
+        xmlns:views1="clr-namespace:PlateTracker.Views"
+        xmlns:controls1="clr-namespace:PlateTracker.Controls"
         mc:Ignorable="d"
         Title="Plate Tracker" Height="600" Width="900">
+   
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="50" />
-        </Grid.RowDefinitions>
-        <Grid>
-            
-        </Grid>
-        <Grid Grid.Row="1" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>         
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200" />
-                <ColumnDefinition Width="200*" />
-            </Grid.ColumnDefinitions>
-            <GroupBox Grid.Column="0" Header="Object List" HorizontalAlignment="Stretch" Margin="10,10,10,10" MinWidth="200">
-                
-            </GroupBox>
-            <GridSplitter MinWidth="5" />
-            <GroupBox Grid.Column="1" Header="Object Draw" HorizontalAlignment="Stretch" Margin="10,10,10,10" MinWidth="400">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="340" />
-                        <ColumnDefinition Width="100*" />
-                    </Grid.ColumnDefinitions>
-                    
-                    <StackPanel Grid.Column="0" MinWidth="300" >
-                        <Canvas x:Name="DrawImage" Width="300" Height="300" MouseDown="DrawImage_OnMouseDown" Background="LightGoldenrodYellow" 
-                                MouseMove="DrawImage_OnMouseMove" MouseUp="DrawImage_OnMouseUp">
-                            
-                        </Canvas>
-                    </StackPanel>
-                    <GridSplitter MinWidth="5" />
-                    <StackPanel Grid.Column="1" MinWidth="90">
-                        <wpf:OpenGLControl Name="openGLControl" OpenGLDraw="OpenGLControl_OnOpenGLDraw" OpenGLInitialized="OpenGLControl_OnOpenGLInitialized"
-                               DrawFPS="True" Resized="OpenGLControl_OnResized" Width="300" Height="300"
-                               />
-                    </StackPanel>
-                </Grid>
-                
-            </GroupBox>
+       <TabControl x:Name="MainViewTabControl" 
+                  
+                   Grid.Column="0" Grid.Row="0"
+                   BorderThickness="0" 
+                   BorderBrush="Transparent"
+                  
+                   HorizontalAlignment="Stretch" >
 
-
-        </Grid>
-        <Grid Grid.Row="2">
-            <StackPanel>
-                <DockPanel Margin="5,5,5,5">
-                    <Button Content="New" Width="150" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center"
-                            FontSize="16" IsEnabled="True" Command="{Binding AddCommand}" Margin="10,0,0,0" />
-                    <Button Content="Save" Width="150" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" 
-                            FontSize="16" IsEnabled="True" Command="{Binding SaveCommand}" Margin="10,0,0,0"/>
-                    <Button Content="Update" Width="150" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" 
-                            FontSize="16" IsEnabled="True" Command="{Binding UpdateCommand}" Margin="10,0,0,0"/>
-                    <Button Content="Close" Width="150" Height="35" HorizontalAlignment="Right" VerticalAlignment="Center"
-                            FontSize="16" IsEnabled="True" Command="{Binding CloseCommand}" Margin="10,0,0,0"/>
-                </DockPanel>
-            </StackPanel>
-        </Grid>
+            <controls1:TabItemEx TabHeaderText="OpenGl Tutorial" x:Name="OpenGlTutorialControl" ToolTip="Tooltip" >
+               <views1:OpenGlTutorialView x:Name="OpenGlTutorialView" DataContext="{Binding OpenGlTutorialViewModel}" />
+            </controls1:TabItemEx>
+           <controls1:TabItemEx TabHeaderText="Polygon Draw" x:Name="PolygonDraw" ToolTip="Allow createding/modifing objects in draw window" >
+               <views1:PolygonDrawView x:Name="PolygonDrawView" DataContext="{Binding PolygonDrawViewModel}" />
+           </controls1:TabItemEx>
+           
+       </TabControl>
     </Grid>
 </Window>
