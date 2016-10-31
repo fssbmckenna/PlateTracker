@@ -18,8 +18,14 @@ namespace PlateTracker.Controls
 
         public string TabHeaderText
         {
-            get { return (string) GetValue(TabImageProperty); }
-            set { SetValue(TabHeaderTextProperty, value);}
+            get
+            {
+                return (string) GetValue(TabHeaderTextProperty);
+            }
+            set
+            {
+                SetValue(TabHeaderTextProperty, value);
+            }
         }
 
         public string TabImage

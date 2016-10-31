@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PlateTracker.ViewModels;
 
 namespace PlateTracker.Views
 {
@@ -22,6 +23,8 @@ namespace PlateTracker.Views
         public OpenGlTutorialView()
         {
             InitializeComponent();
+            var vm = new OpenGlTutorialViewModel();
+            this.DataContext = vm;
         }
     }
 }

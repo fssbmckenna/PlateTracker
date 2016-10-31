@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:PlateTracker.UI">
 
-
     <Style TargetType="Button">
         <Setter Property="MinWidth"
                 Value="60" />
@@ -10,6 +9,40 @@
                 Value="23" />
         <Setter Property="Margin"
                 Value="3" />
+    </Style>
+  
+    <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#ACACAC"/>
+
+    <Style x:Key="MainWindowStyle" TargetType="{x:Type Window}">
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome CaptionHeight="5" CornerRadius="0" GlassFrameThickness="8,0,8,8" UseAeroCaptionButtons="False" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="MinWidth" Value="1280" />
+        <Setter Property="MinHeight" Value="720" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="WindowState" Value="{Binding WindowState}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Border x:Name="border" Background="{DynamicResource DarkWhite}" BorderBrush="{DynamicResource Primary}" BorderThickness="1">
+                        <Grid Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <ContentPresenter Grid.Row="0" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter TargetName="border" Property="Padding" Value="3" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style x:Key="MainMenuTabControl" TargetType="{x:Type TabControl}">
@@ -37,10 +70,12 @@
                         <Grid Grid.Row="0">
                             <!-- Background color of DockPanel same as ActionBar area -->
                             <DockPanel   x:Name="HeaderStackPanel" Background="#FF001932" HorizontalAlignment="Stretch" >
-
+                                <Border HorizontalAlignment="Left" DockPanel.Dock="Left" />
+                                    
+                                
                                 <TabPanel x:Name="headerPanel" Background="Transparent"  IsItemsHost="true" VerticalAlignment="Stretch" DockPanel.Dock="Left" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1" Margin="20,0,0,0"/>
 
-
+                              
                                 <Label x:Name="StatusLabel" Content="{Binding SystemState}"  Foreground="White" FontSize="14"  Margin="0,0,10,0" VerticalAlignment="Center" DockPanel.Dock="Right" >
                                     <Label.Style>
                                         <Style TargetType="{x:Type Label}">

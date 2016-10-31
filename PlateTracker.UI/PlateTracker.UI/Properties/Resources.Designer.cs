@@ -59,5 +59,23 @@ namespace PlateTracker.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OpenGL Tutorial.
+        /// </summary>
+        internal static string MainViewTab_OpenGLTutorial {
+            get {
+                return ResourceManager.GetString("MainViewTab_OpenGLTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Polygon Draw.
+        /// </summary>
+        internal static string MainViewTab_PolygonDraw {
+            get {
+                return ResourceManager.GetString("MainViewTab_PolygonDraw", resourceCulture);
+            }
+        }
     }
 }

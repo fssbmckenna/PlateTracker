@@ -10,22 +10,46 @@
         xmlns:views1="clr-namespace:PlateTracker.Views"
         xmlns:controls1="clr-namespace:PlateTracker.Controls"
         mc:Ignorable="d"
-        Title="Plate Tracker" Height="600" Width="900">
+        BorderThickness="1"
+        Height="600" Width="900"
+        Style="{DynamicResource MainWindowStyle}"
+        Title="OpenGL Sceen Creator"
+        >
    
+    <Window.Resources>
+        <ResourceDictionary Source="../Resources/Styles.xaml"/>
+    </Window.Resources>
     <Grid>
        <TabControl x:Name="MainViewTabControl" 
-                  
+                   Style="{DynamicResource MainMenuTabControl}"
+                   d:DataContext="{d:DesignInstance Type= viewModels:MainVM}"
                    Grid.Column="0" Grid.Row="0"
                    BorderThickness="0" 
                    BorderBrush="Transparent"
-                  
+                   TabStripPlacement="Top"
                    HorizontalAlignment="Stretch" >
 
-            <controls1:TabItemEx TabHeaderText="OpenGl Tutorial" x:Name="OpenGlTutorialControl" ToolTip="Tooltip" >
-               <views1:OpenGlTutorialView x:Name="OpenGlTutorialView" DataContext="{Binding OpenGlTutorialViewModel}" />
+            <controls1:TabItemEx 
+                    x:Name="OpenGlTutorialControl" 
+                    TabHeaderText="OpenGL Tutorial"
+                    TabIndex="0"
+                    ToolTip="Tooltip" 
+                    MinWidth="150" MinHeight="30" > 
+               <views1:OpenGlTutorialView
+                    x:Name="OpenGlTutorialView" 
+                    DataContext="{Binding OpenGlTutorialViewMode l}" />
             </controls1:TabItemEx>
-           <controls1:TabItemEx TabHeaderText="Polygon Draw" x:Name="PolygonDraw" ToolTip="Allow createding/modifing objects in draw window" >
-               <views1:PolygonDrawView x:Name="PolygonDrawView" DataContext="{Binding PolygonDrawViewModel}" />
+            <controls1:TabItemEx
+                    x:Name="PolygonDraw"
+                    TabIndex="1"
+                    TabHeaderText="Polygon Draw"  
+                    ToolTip="Allow createding/modifing objects in draw window" 
+                    MinWidth="150" MinHeight="35" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left" >
+               <views1:PolygonDrawView 
+                    x:Name="PolygonDrawView" 
+                    DataContext="{Binding PolygonDrawViewModel}" />
            </controls1:TabItemEx>
            
        </TabControl>

@@ -29,3 +29,5 @@ C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\
 C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\PlateTracker.UI.csproj.GenerateResource.Cache
 C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\PlateTracker.UI.exe
 C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\obj\Debug\PlateTracker.UI.pdb
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\ICSharpCode.AvalonEdit.dll
+C:\Users\BMcKenna\Documents\GitHub\PlateTracker\PlateTracker.UI\PlateTracker.UI\bin\Debug\ICSharpCode.AvalonEdit.xml
