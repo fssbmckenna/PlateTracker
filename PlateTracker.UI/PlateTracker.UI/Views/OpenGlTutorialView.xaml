@@ -19,7 +19,6 @@
                       MinWidth="500" MinHeight="100"
                       BorderBrush="PowderBlue"
                       >
-                
             <Grid>
                 <DockPanel>
                         <avalonedit:TextEditor Name="_codeSample" Document = "{Binding CodeSample, Mode=TwoWay}"
@@ -27,7 +26,7 @@
                                     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="White"
                                      BorderBrush="Gray"  IsEnabled="true"
                             />
-                    </DockPanel>
+                </DockPanel>
             </Grid> 
             </GroupBox>
         </Grid>

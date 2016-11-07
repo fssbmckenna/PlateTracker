@@ -101,6 +101,21 @@ namespace PlateTracker.UI.ViewModels
         #endregion
 
         #region Properties
+
+        private TabItem _selectedTabItem;
+        public TabItem SelectedTabItem
+        {
+            get { return _selectedTabItem;}
+            set
+            {
+                _selectedTabItem = value;
+                OnPropertyChanged("SelectedTabItem");
+            }
+        }
+
+        public IOpenGlTutorialViewModel OpenGlTutorialViewModel { get; private set; }
+        public IPolygonDrawViewModel PolygonDrawViewModel { get; private set; }
+
         private object _plateObject;
         public object PlateObject
         {

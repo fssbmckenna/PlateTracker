@@ -21,36 +21,28 @@
     </Window.Resources>
     <Grid>
        <TabControl x:Name="MainViewTabControl" 
-                   Style="{DynamicResource MainMenuTabControl}"
+                   
                    d:DataContext="{d:DesignInstance Type= viewModels:MainVM}"
-                   Grid.Column="0" Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.Row="0"
                    BorderThickness="0" 
                    BorderBrush="Transparent"
                    TabStripPlacement="Top"
+                   SelectedItem="{Binding SelectedTabItem}"
                    HorizontalAlignment="Stretch" >
 
-            <controls1:TabItemEx 
-                    x:Name="OpenGlTutorialControl" 
-                    TabHeaderText="OpenGL Tutorial"
-                    TabIndex="0"
-                    ToolTip="Tooltip" 
-                    MinWidth="150" MinHeight="30" > 
+            <TabItem  Header="OpenGL Tutorial" ToolTip="Tooltip" MinWidth="150"> 
                <views1:OpenGlTutorialView
                     x:Name="OpenGlTutorialView" 
-                    DataContext="{Binding OpenGlTutorialViewMode l}" />
-            </controls1:TabItemEx>
-            <controls1:TabItemEx
-                    x:Name="PolygonDraw"
-                    TabIndex="1"
-                    TabHeaderText="Polygon Draw"  
-                    ToolTip="Allow createding/modifing objects in draw window" 
-                    MinWidth="150" MinHeight="35" 
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Left" >
+                    DataContext="{Binding OpenGlTutorialViewModel}" />
+            </TabItem>
+            <TabItem Header="Polygon Draw"  ToolTip="Allow createding/modifing objects in draw window" 
+                    MinWidth="150"
+                     >
                <views1:PolygonDrawView 
                     x:Name="PolygonDrawView" 
                     DataContext="{Binding PolygonDrawViewModel}" />
-           </controls1:TabItemEx>
+           </TabItem>
            
        </TabControl>
     </Grid>

@@ -8,14 +8,6 @@ namespace PlateTracker.Controls
 {
     public class TabItemEx : TabItem
     {
-
-        public static readonly DependencyProperty TabHeaderTextProperty =
-            DependencyProperty.Register("TabHeaderText", typeof (string), typeof (TabItemEx), new PropertyMetadata(string.Empty));
-
-        public static readonly DependencyProperty TabImageProperty =
-            DependencyProperty.Register("TabImage", typeof (string), typeof (TabItemEx),
-                new PropertyMetadata(string.Empty));
-
         public string TabHeaderText
         {
             get
@@ -28,10 +20,18 @@ namespace PlateTracker.Controls
             }
         }
 
+        public static readonly DependencyProperty TabHeaderTextProperty =
+           DependencyProperty.Register("TabHeaderText", typeof(string), typeof(TabItemEx), new PropertyMetadata(string.Empty));
+
         public string TabImage
         {
             get { return (string) GetValue(TabImageProperty); }
             set { SetValue(TabImageProperty, value);}
         }
+
+        public static readonly DependencyProperty TabImageProperty =
+            DependencyProperty.Register("TabImage", typeof(string), typeof(TabItemEx),
+                new PropertyMetadata(string.Empty));
+
     }
 }

@@ -7,7 +7,11 @@ using ICSharpCode.AvalonEdit.Document;
 
 namespace PlateTracker.ViewModels
 {
-    public class OpenGlTutorialViewModel : ViewModelBase
+    public interface IOpenGlTutorialViewModel
+    {
+        
+    }
+    public class OpenGlTutorialViewModel : ViewModelBase, IOpenGlTutorialViewModel
     {
 
         public OpenGlTutorialViewModel()

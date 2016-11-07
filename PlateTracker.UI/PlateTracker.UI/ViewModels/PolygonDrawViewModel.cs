@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace PlateTracker.ViewModels
 {
-    public class PolygonDrawViewModel
+    public interface IPolygonDrawViewModel
+    {
+        
+    }
+
+    public class PolygonDrawViewModel : IPolygonDrawViewModel
     {
     }
 }
