@@ -55,7 +55,7 @@ namespace PlateTracker.UI.Views
 
         //private MainVM _mainVm;
 
-        public MainView(MainVM vm)
+        public MainView(IMainVM vm)
         {
             this.DataContext = vm;
             //vm.CloseWindowCommand = this.Close();

@@ -12,7 +12,7 @@
         mc:Ignorable="d"
         BorderThickness="1"
         Height="600" Width="900"
-        Style="{DynamicResource MainWindowStyle}"
+       
         Title="OpenGL Sceen Creator"
         >
    

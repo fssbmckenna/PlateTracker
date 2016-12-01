@@ -18,6 +18,8 @@ namespace PlateTracker.UI.ViewModels
         ICommand SaveCommand { get; }
         ICommand UpdateCommand { get; }
         ICommand CloseCommand { get; }
+
+        
     }
 
     public delegate void UpdateOpenGlObject(object sender, OpenGlObjetUpdateEventsArgs e);
@@ -41,6 +43,8 @@ namespace PlateTracker.UI.ViewModels
         public MainVM()
         {
             PlateObject = new object();
+            //ToolsViewModel = new ToolsViewModel(runController, viewFactory);
+            OpenGlTutorialVM = new OpenGlTutorialViewModel();
         }
 
         #endregion
@@ -113,8 +117,13 @@ namespace PlateTracker.UI.ViewModels
             }
         }
 
-        public IOpenGlTutorialViewModel OpenGlTutorialViewModel { get; private set; }
-        public IPolygonDrawViewModel PolygonDrawViewModel { get; private set; }
+        public IOpenGlTutorialViewModel OpenGlTutorialVM { get; private set; }
+
+        public IPolygonDrawViewModel PolygonDrawViewModel
+        {
+            get;
+            set;
+        }
 
         private object _plateObject;
         public object PlateObject

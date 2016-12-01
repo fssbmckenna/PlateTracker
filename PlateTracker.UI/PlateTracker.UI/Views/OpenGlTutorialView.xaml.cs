@@ -25,6 +25,18 @@ namespace PlateTracker.Views
             InitializeComponent();
             var vm = new OpenGlTutorialViewModel();
             this.DataContext = vm;
+            var test = this.DataContext.GetType();
+        }
+
+        public OpenGlTutorialView(IOpenGlTutorialViewModel viewModel)
+        {
+            this.DataContext = viewModel;
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+           
+            throw new NotImplementedException();
         }
     }
 }

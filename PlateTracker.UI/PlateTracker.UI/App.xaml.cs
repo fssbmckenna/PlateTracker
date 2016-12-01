@@ -62,7 +62,7 @@ namespace PlateTracker.UI
                 //Log Starting...
                 //Load MainView through container
 
-                var vm = new MainVM();
+                var vm = new IMainVM();
                 var mainView = new MainView(vm);
                 mainView.Show();
 
